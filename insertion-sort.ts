@@ -38,5 +38,21 @@ export function insertionSortInPlace(arr: number[]): number[] {
   - Increment the dividing pointer and repeat
   Return the mutated array
   */
-  // Your code here
+
+  let divider = 1;
+  while (arr[divider] != null) {
+    console.log(arr.join(","));
+    const n = arr[divider];
+    for (let i = divider; i >= 0; i--) {
+      const prev = arr[i - 1];
+      if (n != null && (i === 0 || (prev && prev < n))) {
+        arr[i] = n;
+        break;
+      } else if (prev != null) {
+        arr[i] = prev;
+      }
+    }
+    divider++;
+  }
+  return arr;
 }
