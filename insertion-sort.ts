@@ -1,23 +1,23 @@
 // Insertion Sort out-of-place
 // Do not modify the original array
 export function insertionSort(arr: number[]): number[] {
-  /*
-  Pseudocode:
-
-  Copy the original array
-  Create an array to store the sorted values
-  While the array is not empty:
-  - make sure you have a console.log(sorted.join(',')) as your first line in the while loop
-  - Pop a value from the array
-  - Create a new spot at the end of the array with null to help with comparisons
-  - Walk through the sorted array in reverse order
-  - Check if the value to the left is smaller than the new value
-  - If so, you've reached the insertion point so exit the loop
-  - If not shift the value to the right by 1 and continue
-  - Insert the unsorted value at the break point
-  Return the sorted array
-  */
-  // Your code here
+  const array = arr.slice();
+  const sorted: number[] = [];
+  while (array.length) {
+    console.log(sorted.join(","));
+    const last = array.pop();
+    sorted.push(0);
+    for (let i = sorted.length - 1; i >= 0; i--) {
+      const prev = sorted[i - 1];
+      if (last != null && (i === 0 || (prev != null && prev < last))) {
+        sorted[i] = last;
+        break;
+      } else if (prev != null) {
+        sorted[i] = prev;
+      }
+    }
+  }
+  return sorted;
 }
 
 // In-place Insertion Sort
